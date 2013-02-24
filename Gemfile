@@ -10,6 +10,7 @@ gem 'bcrypt-ruby',                '~> 3.0.1'
 gem 'devise',                     '~> 2.2.3'
 gem 'font-awesome-rails',         '~> 3.0.2'
 gem 'aws-sdk',                    '~> 1.8.3'
+gem 'cancan',                     '~> 1.6.9'
 
 group :production do 
   gem 'pg'
