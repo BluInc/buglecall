@@ -212,7 +212,7 @@ DEPENDENCIES
   handlebars_assets (~> 0.12.0)
   jquery-rails (~> 2.2.0)
   jquery-ui-rails (~> 3.0.1)
-  paperclip
+  paperclip (~> 3.4.1)
   pg
   rails (~> 3.2.12)
   rb-fsevent (~> 0.9)

@@ -6,6 +6,8 @@
     %h2.form-signin-heading 
       Edit
       = resource_name.to_s.humanize
+  .row-fluid.field
+    = f.file_field :avatar, placeholder: "User avatar"
   .row-fluid
     = f.email_field :email, class: "input-block-level", placeholder: "Email address"
 
@@ -22,6 +24,6 @@
   .row-fluid
     .span4
       = f.submit "Update", class: "btn btn-large btn-primary"
-    .span8
-      = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-large btn-danger"
+    //.span8
+    //  = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-large btn-danger"
 //<%= link_to "Back", :back %>
