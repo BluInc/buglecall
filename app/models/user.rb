@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w[dba]
+  ROLES = %w[dba supervisor user banned]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
+    self.save
   end
 
   def roles
