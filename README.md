@@ -15,11 +15,11 @@ It includes the following:
  * Thorax which is built ontop of Backbone and provies some opinions http://thoraxjs.org/.
  * Handelbars which is what Thorax and backbone use for the client site templates http://handlebarsjs.com/ however the prefered way of writing client side temlates is with an extension of .hamlbars. This allows you to include haml that is preprocessed for handelbars, this saves you on a lot of html.
  * Devise https://github.com/plataformatec/devise is configured and ready to go with a User model.
+ * Cancan https://github.com/ryanb/cancan is setup to controll access to resources, it uses a bitmask on the devise User model.
  * Basic routing setup.
  * Can imeadiatly be deployed to Heroku, without any modifications.
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
-
 
 
 Seeing Backbone / Thorax / Handelbars Work
@@ -39,4 +39,9 @@ That will grab the test routes index view and render it to the browser!
 Notes
 =====
 
-Don't for get to migrate the database and bundle install: `bundle install` and then `rake db:migrate`
+* Don't for get to migrate the database and bundle install: `bundle install` and then `rake db:migrate`
+* Signup on the site to create a User account, then give that user a security roll of dba by doing the following from the rails console:
+```
+   user = User.first
+   user.roles = ["dba"]
+```
