@@ -2,7 +2,7 @@ Default Rails 3.2+ Starter Enviroment
 =========================
 
 This project is intended to help people rapidly deploy common rails configurations and offer as a good starting 
-point to test out new ideas. This applicationi is configured and able to run right out of the box.
+point to test out new ideas. This application is configured and able to run right out of the box.
 
 It includes the following:
 
