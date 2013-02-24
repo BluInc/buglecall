@@ -1,0 +1,27 @@
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: "devise-forms" }) do |f|
+  - msg = devise_error_messages!
+  - if !msg.empty?
+    - flash[:msg] = msg.split("<li>").pop.to_s.split("</li>")[0].html_safe  
+  .row-fluid 
+    %h2.form-signin-heading 
+      Edit
+      = resource_name.to_s.humanize
+  .row-fluid
+    = f.email_field :email, class: "input-block-level", placeholder: "Email address"
+
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: 
+      = resource.unconfirmed_email
+  .row-fluid
+    = f.password_field :password, class: "input-block-level", placeholder: "Password"
+  .row-fluid
+    = f.password_field :password_confirmation, class: "input-block-level", placeholder: "Password confirmation"
+  .row-fluid
+    = f.password_field :current_password, class: "input-block-level", placeholder: "Current password"
+  .row-fluid
+    .span4
+      = f.submit "Update", class: "btn btn-large btn-primary"
+    .span8
+      = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-large btn-danger"
+//<%= link_to "Back", :back %>
