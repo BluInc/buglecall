@@ -1,13 +1,13 @@
-= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, class: "devise-forms" }) do |f|
+= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, class: "devise-forms" }) do |f|
   - msg = devise_error_messages!
   - if !msg.empty?
     - flash[:msg] = msg.split("<li>").pop.to_s.split("</li>")[0].html_safe 
   .row-fluid 
-    %h2.form-signin-heading Resend unlock instructions
+    %h2.form-signin-heading Resend confirmation instructions
   .row-fluid
     = f.email_field :email, class: "input-block-level", placeholder: "Email address"
   .row-fluid
     .span5
-      = f.submit "Resend unlock instructions", class: "btn btn-large btn-primary"
+      = f.submit "Resend confirmation instructions", class: "btn btn-large btn-primary"
     .span7
       = render "devise/shared/links"
