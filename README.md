@@ -41,6 +41,7 @@ Notes
 
 * Don't for get to migrate the database and bundle install: `bundle install` and then `rake db:migrate`
 * Signup on the site to create a User account, then give that user a security roll of dba by doing the following from the rails console:
+
 ```
    user = User.first
    user.roles = ["dba"]
