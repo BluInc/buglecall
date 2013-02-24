@@ -18,6 +18,7 @@ It includes the following:
  * Cancan https://github.com/ryanb/cancan is setup to controll access to resources, it uses a bitmask on the devise User model.
  * Basic routing setup.
  * Can imeadiatly be deployed to Heroku, without any modifications.
+ * Paperclip https://github.com/thoughtbot/paperclip , which is configured to store files using Amazon S3
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
 
@@ -46,3 +47,15 @@ Notes
    user = User.first
    user.roles = ["dba"]
    ```
+* Setup your enviroment to store your Amazon S3 access keys, create a file in your home folder called .amazon_keys with the follow contents:
+   ```
+   export AWS_BUCKET='my_bucket'
+   export AMAZON_ACCESS_KEY_ID='abcdefghijklmnop'
+   export AMAZON_SECRET_ACCESS_KEY='1234567891012345'
+   ```
+   then modify your .bash_profile or .bashrc to source your file:
+   ```
+   ### Enable AWS Access Keys
+   if [[ -f "$HOME/.amazon_keys" ]]; then
+     source "$HOME/.amazon_keys";
+   fi
