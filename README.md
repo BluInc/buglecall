@@ -32,7 +32,7 @@ Or you can do the following from your browsers javascript console to see how cli
    var view = new Application.Views['test/index']
    Application.setView(view)
 ```
-That will grad the test routes index view and render it to the browser!
+That will grab the test routes index view and render it to the browser!
 
 
 
