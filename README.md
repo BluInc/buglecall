@@ -23,4 +23,4 @@ This allows me to have a common starting point for new Rails applications I deve
 Seeing Backbone / Thorax / Handelbars Work
 ==========================================
 
-A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url. For example something like this http://localhost:3000/#/test.
+A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url. For example something like this http://localhost:3000/#/test .
