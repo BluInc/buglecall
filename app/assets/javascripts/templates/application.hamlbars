@@ -1,0 +1,3 @@
+{{! This template is used by the Application object created created in init.js, calling Application.setView() willplace a view where layout-element is called below. }}
+
+{{layout-element}}
