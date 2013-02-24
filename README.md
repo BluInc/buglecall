@@ -20,7 +20,16 @@ It includes the following:
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
 
+
+
 Seeing Backbone / Thorax / Handelbars Work
 ==========================================
 
 A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url. For example something like this [http://localhost:3000/#/test](http://localhost:3000/#/test) .
+
+
+
+Notes
+=====
+
+Don't for get to migrate the database and bundle install: `bundle install` and then `rake db:migrate`
