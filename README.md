@@ -1,4 +1,21 @@
 default-starter-rails-app
 =========================
 
-A good starting configuration for many common Rails 3.2+ applicatons
+This project is intended to help people rapidly deploy common rails configurations and offer as a good starting 
+point to test out new ideas. This applicationi is configured and able to run right out of the box.
+
+It includes the following:
+
+ * Twitter bootstrap: http://twitter.github.com/bootstrap/index.html and is initially styled with it.
+ * Font Awesome http://fortawesome.github.com/Font-Awesome/ is included.
+ * All Rails views are using haml http://haml.info/ instead of erb.
+ * Data Driven Documents for charting and graphing http://d3js.org/.
+ * Amazon Web Services SDK to interface with Amazon http://aws.amazon.com/sdkforruby/.
+ * Backbone for managing client side interactions http://backbonejs.org/.
+ * Thorax which is built ontop of Backbone and provies some opinions http://thoraxjs.org/.
+ * Handelbars which is what Thorax and backbone use for the client site templates http://handlebarsjs.com/ however the prefered way of writing client side temlates is with an extension of .hamlbars. This allows you to include haml that is preprocessed for handelbars, this saves you on a lot of html.
+ * Devise https://github.com/plataformatec/devise is configured and ready to go with a User model.
+ * Basic routing setup.
+ * Can imeadiatly be deployed to Heroku, without any modifications.
+ 
+This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
