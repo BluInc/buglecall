@@ -9,7 +9,7 @@ gem 'd3_rails',                   '~> 3.0.6'
 gem 'bcrypt-ruby',                '~> 3.0.1'
 gem 'devise',                     '~> 2.2.3'
 gem 'font-awesome-rails',         '~> 3.0.2'
-gem  'aws-sdk',                   '~> 1.8.3'
+gem 'aws-sdk',                    '~> 1.8.3'
 
 group :production do 
   gem 'pg'
