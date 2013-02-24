@@ -47,7 +47,7 @@ Notes
    user = User.first
    user.roles = ["dba"]
    ```
-* Setup your enviroment to store your Amazon S3 access keys, create a file in your home folder called .amazon_keys with the follow contents:
+* Setup your enviroment to store your Amazon S3 access keys, create a file in your home folder called .amazon_keys with the follow contents (use your own keys and bucket):
    ```
    export AWS_BUCKET='my_bucket'
    export AMAZON_ACCESS_KEY_ID='abcdefghijklmnop'
