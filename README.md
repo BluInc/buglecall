@@ -1,4 +1,4 @@
-default-starter-rails-app
+Default Rails 3.2+ Starter Enviroment
 =========================
 
 This project is intended to help people rapidly deploy common rails configurations and offer as a good starting 
