@@ -1,1 +1,4 @@
-<h1>This is a test!</h1>
+.row-fluid
+  .span8.offset2
+    .alert.alert-info
+      Text index route!
