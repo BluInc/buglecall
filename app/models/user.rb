@@ -11,10 +11,10 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_attached_file :avatar, styles: {
-    small:  '20x20#',
+    small:  '25x25>',
     thumb:  '100x100>',
-    square: '200x200#',
-    medium: '300x300>'
+    medium: '200x200>',
+    large:  '300x300>'
   }
 
   def roles=(roles)
