@@ -59,3 +59,8 @@ Notes
    if [[ -f "$HOME/.amazon_keys" ]]; then
      source "$HOME/.amazon_keys";
    fi
+   ```
+* You need to install ImageMagic in order to do the image processing, if you are using OS X do the following:
+   ```
+   brew install imagemagick
+   ```
