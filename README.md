@@ -19,3 +19,8 @@ It includes the following:
  * Can imeadiatly be deployed to Heroku, without any modifications.
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
+
+Seeing Backbone / Thorax / Handelbars Work
+==========================================
+
+A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url.
