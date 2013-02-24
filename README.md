@@ -27,6 +27,13 @@ Seeing Backbone / Thorax / Handelbars Work
 
 A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url. For example something like this [http://localhost:3000/#/test](http://localhost:3000/#/test) .
 
+Or you can do the following from your browsers javascript console to see how client side interaction feels:
+```
+   var view = new Application.Views['test/index']
+   Application.setView(view)
+```
+That will grad the test routes index view and render it to the browser!
+
 
 
 Notes
