@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
     medium: '200x200>',
     large:  '300x300>'
   }
+  
+  # Enable papertrail on this model
+  has_paper_trail
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)

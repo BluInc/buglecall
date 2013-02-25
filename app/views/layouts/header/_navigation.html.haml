@@ -6,7 +6,7 @@
         - if user_signed_in?
           %li
             %a{href: edit_user_registration_path}
-              = image_tag current_user.avatar.url(:small)
+              = image_tag current_user.avatar.url(:small), class: "img-rounded"
               %strong
                 = current_user.email.split("@")[0].html_safe
           %li
