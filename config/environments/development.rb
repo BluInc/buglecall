@@ -37,6 +37,9 @@ Basic::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Path to ImageMagic  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
   
   # Enables local teting with s3
   config.paperclip_defaults = {
