@@ -5,9 +5,15 @@
   .row-fluid
     %h2.form-signin-heading Please sign in!
   .row-fluid
-    = f.email_field :email, class: "input-block-level", placeholder: "Email address"
+    .input-prepend
+      %span.add-on
+        %i.icon-envelope
+      = f.email_field :email, class: "input-block-level span11", placeholder: "Email address"
   .row-fluid
-    = f.password_field :password, class: "input-block-level", placeholder: "Password"
+    .input-prepend
+      %span.add-on
+        %i.icon-key
+      = f.password_field :password, class: "input-block-level span11", placeholder: "Password"
   .row-fluid
     .span5  
       = f.submit "Sign in", class: "btn btn-large btn-primary"
