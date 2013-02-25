@@ -5,15 +5,18 @@
       %ul.nav.pull-right
         - if user_signed_in?
           %li
-            = image_tag current_user.avatar.url(:small)
+            %a{href: edit_user_registration_path}
+              = image_tag current_user.avatar.url(:small)
+              %strong
+                = current_user.email.split("@")[0].html_safe
           %li
-            = link_to('Logout', destroy_user_session_path, :method=>'delete')
+            = link_to('<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path, :method=>'delete', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'data-original-title' => 'Sign out', title:'')
+          %li
+            %span
+              &nbsp;&nbsp;&nbsp;
         - else
           %li
             = link_to('Login', new_user_session_path)
-        - if user_signed_in?
-          %li
-            = link_to('Edit account', edit_user_registration_path)
-        - else
+        - if !user_signed_in?
           %li
             = link_to('Sign up', new_user_registration_path)

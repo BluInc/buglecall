@@ -30,4 +30,7 @@ $(function() {
   });
   Application.appendTo('body');
   Backbone.history.loadUrl();
+
+  //Enable Tool Tips
+  $("[data-toggle=tooltip]").tooltip();
 });
