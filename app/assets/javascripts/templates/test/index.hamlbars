@@ -1,4 +1,4 @@
 .row-fluid
   .span8.offset2
     .alert.alert-info
-      Text index route!
+      Test index route!
