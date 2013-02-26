@@ -36,4 +36,6 @@ group :test, :development do
   gem 'rb-fsevent',               '~> 0.9'
   gem 'spork',                    '~> 0.9'
   gem 'annotate',                 '~> 2.4'
+  gem 'better_errors',            '~> 0.7'
+  gem 'binding_of_caller',        '~> 0.7'
 end

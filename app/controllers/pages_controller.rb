@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   	# Example of using cancan
   	if can? :read, PagesController
   	  render action: "index"
+
   	else
   		flash[:msg] = 'You do not have access to index action'
   	end
