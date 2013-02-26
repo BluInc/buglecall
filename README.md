@@ -6,6 +6,7 @@ point to test out new ideas. This application is configured and able to run righ
 
 It includes the following:
 
+ * Better Errors https://github.com/charliesome/better_errors really makes debugging your rails application much easier.
  * Twitter bootstrap: http://twitter.github.com/bootstrap/index.html and is initially styled with it.
  * Font Awesome http://fortawesome.github.com/Font-Awesome/ is included.
  * All Rails views are using haml http://haml.info/ instead of erb.
