@@ -38,4 +38,5 @@ group :test, :development do
   gem 'annotate',                 '~> 2.4'
   gem 'better_errors',            '~> 0.7'
   gem 'binding_of_caller',        '~> 0.7'
+  gem 'meta_request',             '~> 0.2'
 end
