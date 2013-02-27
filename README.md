@@ -67,3 +67,4 @@ Notes
    ```
    brew install imagemagick
    ```
+* If you want to get improved debugging in the chrome developer panel, install the Chrome RailsPanel Extension.
