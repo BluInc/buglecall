@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery.fineuploader
+//= require jquery-fileupload
 //= require select2
 //= require handlebars
 //= require bootstrap
