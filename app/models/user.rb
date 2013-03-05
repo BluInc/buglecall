@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   }
   
   # Enable papertrail on this model
-  has_paper_trail
+  # Ignore the avatar attributes since this is stored remotely in S3
+  has_paper_trail ignore: [:avatar, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at] 
 
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
