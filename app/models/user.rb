@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w[dba supervisor user banned]
+  ROLES = %w[dbausr supervisor user banned]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_paper_trail only: [:email, :encrypted_password, :roles_mask],
                   skip: [:avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at]
 
+  include Rails.application.routes.url_helpers
+
   def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
     self.save
@@ -36,7 +38,5 @@ class User < ActiveRecord::Base
   def is?(role)
     roles.include?(role.to_s)
   end
-
-
 
 end
