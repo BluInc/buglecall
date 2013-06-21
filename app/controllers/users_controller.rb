@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html, :json
-
+  # Note that authorize methods are commented out, if you want to enable them just uncomment them.
   def history
   end
 
@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     params[:user].delete "updated_at" if params[:user].has_key? "updated_at"
     params[:user].delete "id" if params[:user].has_key? "id"
     
-    # @user.attributes = remove_password_from_params params[:user]
     if @user.valid?
       @user[:email] = params[:user][:email]
       @user.save
@@ -43,9 +42,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, User
+    # authorize! :destroy, User
     @user = User.find(params[:id])
-    authorize! :destroy, @user 
+    # authorize! :destroy, @user 
     if @user.destroy
       respond_with @user
       return
@@ -56,15 +55,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    authorize! :read, User
+    # authorize! :read, User
     @users = User.all
     respond_with @users
   end  
 
   def show
-    authorize! :read, User
+    # authorize! :read, User
     @user = User.find(params[:id])
-    authorize! :read, @user 
+    # authorize! :read, @user 
     respond_with @user
   end 
 
