@@ -1,6 +1,7 @@
 App.View.extend (
   name: 'example/test'
   tagName: 'form'
+  #template: 'example/test'
   views: {}
   attributes:{}
   events: 
