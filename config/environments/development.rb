@@ -14,10 +14,13 @@ Basic::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   
   # Default developme mailer
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -48,7 +51,16 @@ Basic::Application.configure do
       :bucket => ENV['AWS_BUCKET'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    },
+    :s3_permissions => :private
   }
-end
+
+  config.assets.initialize_on_precompile = true
+
+  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
+
+  config.time_zone = 'Central Time (US & Canada)'
 end
