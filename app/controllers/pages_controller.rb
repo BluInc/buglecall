@@ -3,13 +3,7 @@ class PagesController < ApplicationController
   #load_and_authorize_resource :only => [:index, :show] #cancan support for restful resources
 
   def index
-  	# Example of using cancan
-  	if can? :read, PagesController
-  	  render action: "index"
-
-  	else
-  		flash[:msg] = 'You do not have access to index action'
-  	end
+  	render action: "index"
   end
   
 end

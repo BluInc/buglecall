@@ -21,6 +21,8 @@
 //= require underscore
 //= require backbone
 //= require thorax
+//= require greplytix-application
+//= require_tree ./lib
 //= require_tree ./templates
 //= require_tree ./inits
 //= require_tree ./application

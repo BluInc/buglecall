@@ -5,6 +5,9 @@ Basic::Application.routes.draw do
     unauthenticated :user do
       root to: 'devise/sessions#new'
     end
+    
+    resources :users 
+
   end
 
   # The priority is based upon order of creation:

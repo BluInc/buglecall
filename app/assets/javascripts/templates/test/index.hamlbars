@@ -1,4 +1,0 @@
-.row-fluid
-  .span8.offset2
-    .alert.alert-info
-      Test index route!

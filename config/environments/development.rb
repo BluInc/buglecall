@@ -51,3 +51,4 @@ Basic::Application.configure do
     }
   }
 end
+end
