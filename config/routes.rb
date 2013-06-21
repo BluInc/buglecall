@@ -6,7 +6,9 @@ Basic::Application.routes.draw do
       root to: 'devise/sessions#new'
     end
     
-    resources :users 
+    authenticated :user do
+      resources :users 
+    end
 
   end
 
