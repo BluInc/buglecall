@@ -1,7 +1,6 @@
 App.View.extend (
   name: 'example/test'
   tagName: 'form'
-  #template: 'example/test'
   views: {}
   attributes:{}
   events: 
@@ -10,7 +9,7 @@ App.View.extend (
     'change input':'update'
   initialize: () ->
     _.bindAll @, "save", "update"
-    @.model = App.getAlias('CurrentUser')
+    @.model = App.get('CurrentUser')
     @.model.useRailsUrl = true
     @.render()
 

@@ -17,6 +17,7 @@
   _views = Thorax.Views
   _models = Thorax.Models
   _collections = Thorax.Collections
+  _router = null
 
   _elements = {}
 
@@ -37,6 +38,9 @@
     if _debug
       console.log.apply @, arguments
 
+  @.router = () ->
+    _router
+
   @.signedIn = (value) ->
     if _.isUndefined(value)
       _signedIn
@@ -52,7 +56,7 @@
   @.setViewClass = (viewClass) ->
     @.View = viewClass
 
-  @.setAlias = (aliasName, Obj, overwrite) ->
+  @.set = (aliasName, Obj, overwrite) ->
     if !_.has(_aliases, aliasName)
       _aliases[aliasName] = Obj
     else if _.has(_aliases, aliasName) and (_.isUndefined(overwrite) || overwrite is true)
@@ -61,7 +65,7 @@
 
     _aliases[aliasName]
 
-  @.getAlias = (aliasName) ->
+  @.get = (aliasName) ->
     if _.has(_aliases, aliasName)
       _aliases[aliasName]
     else
@@ -152,6 +156,7 @@
     $ =>
       if @.signedIn()
         @.main.call(@)
+        _router = new @.Routers.Application()
         _viewport.trigger "Application:Status:Up", @
   
   @

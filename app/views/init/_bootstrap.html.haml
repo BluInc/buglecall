@@ -3,7 +3,7 @@
     / This is where we bootstrap the application with the data relivant to the current user and their role.
     App.signedIn(true);
 
-    App.setAlias('CurrentUser', new App.Models.User(
+    App.set('CurrentUser', new App.Models.User(
     = @current_user.to_json.html_safe
     )
     );
