@@ -141,6 +141,10 @@
   _.extend @, 
     initialize : () ->
       null
+  # This method is run when the Application is created and the DOM is ready but before main.
+  _.extend @, 
+    ready : () ->
+      null
   # This method will automaticallbe run when the DOM is ready.
   _.extend @,
     main : () ->
@@ -155,6 +159,7 @@
   _.defer () =>
     $ =>
       if @.signedIn()
+        @.ready.call(@)
         @.main.call(@)
         _router = new @.Routers.Application()
         _viewport.trigger "Application:Status:Up", @
