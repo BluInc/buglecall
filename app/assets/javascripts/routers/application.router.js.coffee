@@ -5,5 +5,5 @@ Backbone.Router.extend(
     index: "index"
 
   index: () ->
-    App.getApplicationView('application').view.setView(new App.Views["example/reminders/main"]())
+    App.getView('application').view.setView(new App.Views["example/reminders/main"]())
 )

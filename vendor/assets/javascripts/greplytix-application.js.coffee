@@ -74,7 +74,7 @@
   @.aliases = () ->
     _.keys _aliases
 
-  @.pinApplicationViewToElement = (DOMSelector, viewName, view) ->
+  @.attachViewToElement = (DOMSelector, viewName, view) ->
     _elements[viewName] =
       'view' : view
       'viewName' : viewName
@@ -86,12 +86,12 @@
     view.trigger "View:Append", view, viewName, _elements[viewName].selector, _elements[viewName].el
 
 
-  @.getApplicationView = (viewName) ->
+  @.getView = (viewName) ->
     if _.has _elements, viewName
      _.clone _elements[viewName]
 
-  @.bindApplicationView = (selector, viewName) ->
-    @.pinApplicationViewToElement(selector, viewName, _viewport)
+  @.setViewport = (selector, viewName) ->
+    @.attachViewToElement(selector, viewName, _viewport)
 
   # This will allow events to bubble to this Application viewport object
   Thorax.setRootObject(_viewport)

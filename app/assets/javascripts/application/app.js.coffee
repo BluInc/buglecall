@@ -27,7 +27,7 @@
   # ready. Effectivly this is the start of you application.
   main : () ->
     # Binds the application viewport to the div with the given css selector
-    @.bindApplicationView(".main.client.application", 'application')
+    @.setViewport(".main.client.application", 'application')
 
     # Below is an example on how to navigate on the client with URL's using the Backbone Router
     # @.router().navigate("index", {trigger: true}) 
