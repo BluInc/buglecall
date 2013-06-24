@@ -110,6 +110,62 @@
   @.Model = Thorax.Model.extend(
     '__application__': @
     'useRailsUrl' : false
+    'nestedGet' : (attr) ->
+      nestedAttributes = []
+      index = attr.indexOf('.')
+      last = 0
+      while index > 0
+        nestedAttributes.push attr.substring(last, index)
+        last = index + 1
+        index = attr.substring(last).indexOf('.')
+
+      if nestedAttributes.length is 0
+        m = @.attributes[attr]
+      else
+        # Need to grab the last one.
+        nestedAttributes.push attr.substring(last)
+
+        index = 0
+        m = null
+        while index < nestedAttributes.length
+          if _.isNull(m)
+            m = @.get(nestedAttributes[index])
+          else
+            m = m.get(nestedAttributes[index])
+          index++
+
+        m
+    'nestedSet' : (attr, value, options) ->
+      nestedAttributes = []
+      index = attr.indexOf('.')
+      last = 0
+      while index > 0
+        nestedAttributes.push attr.substring(last, index)
+        last = index + 1
+        index = attr.substring(last).indexOf('.')
+
+      if nestedAttributes.length is 0
+        console.log "SETTING:", attr, "TO:", value
+        console.log "nestedAttributes:", nestedAttributes
+        return @.set(attr, value, _.extend({silent:true}, options))
+      else
+        # Need to grab the last one, that is the property we are setting.
+        setProperty = attr.substring(last)
+        console.log "SETTING:", setProperty, "TO:", value
+        console.log "nestedAttributes:", nestedAttributes
+        index = 0
+        m = null
+        while index < nestedAttributes.length
+          if _.isNull(m)
+            m = @.get(nestedAttributes[index])
+          else
+            m = m.get(nestedAttributes[index])
+          index++
+      
+        return m.set(setProperty, value, options)
+
+
+
     # This defines a generic relationship between RESTful mapps and parent child connections
     'url' : () ->
       if _.has(@, 'collection')
