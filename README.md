@@ -1,4 +1,4 @@
-Default Rails 3.2+ Starter Enviroment
+Default Rails Starter Enviroment
 =========================
 
 This project is intended to help people rapidly deploy common rails configurations and offer as a good starting 
@@ -26,17 +26,9 @@ It includes the following:
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
 
 
-Seeing Backbone / Thorax / Handelbars Work
+The Example Application
 ==========================================
 
-A test route has been pre-configured to work with this deployment. To see it in action simply fireup the application and add the following #/test to the url. For example something like this [http://localhost:3000/#/test](http://localhost:3000/#/test) .
-
-Or you can do the following from your browsers javascript console to see how client side interaction feels:
-```
-   var view = new Application.Views['test/index']
-   Application.setView(view)
-```
-That will grab the test routes index view and render it to the browser!
 
 
 
