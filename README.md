@@ -29,6 +29,7 @@ This allows me to have a common starting point for new Rails applications I deve
 The Example Application
 ==========================================
 
+* After logging into the application open the javascript console on your browser and execute the following command to run the example application `App.router().navigate("index", {trigger: true})`
 
 
 
