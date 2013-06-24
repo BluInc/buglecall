@@ -57,6 +57,16 @@ Client Application Info
           @.model.useRailsUrl = true
           ```
           * Now the URL that is generated would be something like this `/users/1/addresses/`, it will nest the relationships with the routes.
+       * Model's have a new attribute setter and getter called nestedSet & nestedGet. This allows you to work with nested Models, for example:
+       
+          ```
+          @.model = new App.Models.User({person: new App.Models.Person()})
+          @.model.useRailsUrl = true
+          @.model.nestedSet('person.first_name', 'Joe')
+          @.model.nestedSet('person.last_name', 'Viscomi')
+          ...
+          firstName = @.model.nestedGet('person.first_name')
+          ```
      * Collections are located in `assets/javascript/collections`, they generally need to always include two configurations: `model` and `name`.
        * The `name` property is similar to the Model's `name` property. It should be plural, just as in Rails it refers to a table (basically).
        * The `model` property should be the class definition (constructor) of the Model this collection comproses of so something like `model: App.Models.Setting`.
