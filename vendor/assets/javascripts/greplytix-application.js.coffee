@@ -151,14 +151,10 @@
         index = attr.substring(last).indexOf('.')
 
       if nestedAttributes.length is 0
-        console.log "SETTING:", attr, "TO:", value
-        console.log "nestedAttributes:", nestedAttributes
         return @.set(attr, value, _.extend({silent:true}, options))
       else
         # Need to grab the last one, that is the property we are setting.
         setProperty = attr.substring(last)
-        console.log "SETTING:", setProperty, "TO:", value
-        console.log "nestedAttributes:", nestedAttributes
         index = 0
         m = null
         while index < nestedAttributes.length
