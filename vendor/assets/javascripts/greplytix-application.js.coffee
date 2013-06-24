@@ -1,3 +1,9 @@
+#    greplytix-application.js 0.2.0
+
+#    (c) 2012-2013 Joseph Viscomi, Greplytix, Inc.
+#    greplytix-application may be freely distributed under the MIT license.
+#    For all details and documentation:
+#    https://github.com/jjviscomi/default-starter-rails-app
 
 @Application =  (options) ->
 
