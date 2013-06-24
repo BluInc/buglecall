@@ -172,9 +172,10 @@
   _.defer () =>
     $ =>
       if @.signedIn()
+        if _.has(@.Routers, 'Application')
+          _router = new @.Routers.Application()
         @.ready.call(@)
         @.main.call(@)
-        _router = new @.Routers.Application()
         _viewport.trigger "Application:Status:Up", @
   
   @
