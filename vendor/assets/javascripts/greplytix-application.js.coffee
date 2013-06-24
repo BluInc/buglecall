@@ -102,7 +102,7 @@
     '__application__': @
     # This defines a generic relationship between RESTful mapps and model and collections
     'url': () ->
-      if _.isUndefined(@, 'parent')
+      if !_.has(@,'parent')
         "/#{@.name.toUnderscore().toLowerCase()}"
       else
         _.result(@.parent, 'url') + "/#{@.name.toUnderscore().toLowerCase()}"
@@ -110,6 +110,19 @@
   @.Model = Thorax.Model.extend(
     '__application__': @
     'useRailsUrl' : false
+    # This defines a generic relationship between RESTful mapps and parent child connections
+    'url' : () ->
+      if _.has(@, 'collection')
+        base = _.result(@.collection, "url")
+      else if _.has(@, 'parent')
+        base = _.result(@.parent, 'url') + _.result(@, "urlRoot")
+      else 
+        base = _.result(@, "urlRoot")
+
+      return base  if @.isNew()
+
+      base + ((if base.charAt(base.length - 1) is "/" then "" else "/")) + encodeURIComponent(@id)
+
     'toJSON': () ->
       if @.useRailsUrl
         name = @['name'].toUnderscore().toLowerCase()

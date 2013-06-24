@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :roles, :avatar
   # attr_accessible :title, :body
 
+  # This is for the example
+  has_many :reminders
+
   has_attached_file :avatar, styles: {
     small:  '25x25>',
     thumb:  '100x100>',

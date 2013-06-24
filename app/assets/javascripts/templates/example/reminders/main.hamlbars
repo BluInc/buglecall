@@ -1,0 +1,6 @@
+.row-fluid
+  .span6.reminder-table
+    {{view "example/reminders/reminders" collection=collection model=model}}
+  .span6.reminder-form
+    {{view "example/reminders/create" collection=collection model=model}}
+    

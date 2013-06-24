@@ -5,12 +5,16 @@ Basic::Application.routes.draw do
     unauthenticated :user do
       root to: 'devise/sessions#new'
     end
-    
-    authenticated :user do
-      resources :users 
-    end
 
   end
+
+  # START EXAMPLE ROUTES
+  resources :users do
+    resources :reminders
+  end
+
+  resources :reminders
+  # END EXAMPLE ROUTES
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,7 +65,7 @@ Basic::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root to: 'pages#index'
+    root to: 'pages#index'
 
   # See how all your routes lay out with "rake routes"
 

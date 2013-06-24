@@ -1,0 +1,18 @@
+.row-fluid
+  .span12
+    %span
+      %strong
+        Create Reminder
+.row-fluid
+  .span12
+    %input.input-block-level{"type" => "text", "placeholder" => "Reminder Title", "name" => "name"}
+.row-fluid
+  .span12
+    %input.input-block-level{"type" => "text", "placeholder" => "Reminder Description", "name" => "description"}
+.row-fluid
+  .span6
+    %button.btn.btn-small.btn-block.cancel{"type" => "button"}
+      Cancel
+  .span6
+    %button.btn.btn-small.btn-block.save{"type" => "button"}
+      Save
