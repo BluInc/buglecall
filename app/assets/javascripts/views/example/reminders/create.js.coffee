@@ -44,7 +44,6 @@ App.View.extend (
     # Only add it to the local collection view if if was saved to the server
     localModel.save({},{
       success: (model, response) =>
-        console.log "success", model
         # Add the model to the collection
         @.collection.add(model)
         # Clear the form and reset the model
