@@ -32,14 +32,15 @@ Getting Your Rails Enviroment (Mac Outline)
 2. Make sure Homebrew is installed (`http://mxcl.github.io/homebrew/`).
 3. Use homebrew to install Redis - `brew install redis`, I recommend starting it at login, follow the onscreen instructions.
 4. Use homebrew to install elasticsearch - `brew install elasticsearch`, I recommend starting it at login, follow the onscreen instructions.
-5. Install Node Version Manager - NVM (`https://github.com/creationix/nvm`).
-6. Install the latest stable version of Node.js with NVM.
-7. Install Ruby Version Manager - RVM (`https://rvm.io/`)
-8. Install the latest version of Ruby 1.9.3, This is what this library uses.
-9. Clone or Fork this repo to your machine.
-10. This project uses .ruby-version & .ruby-gemset to specify the ruby version and isolate your gemset related to this project.
-11. Navigate to your project directory and run `rake db:migrate` to update the local db.
-12. To start your instance type `rails s`, this starts the rails server.
+5. Use homebrew to install ImageMagic = `brew install imagemagick`, this is used to rezise images for paperclip.
+6. Install Node Version Manager - NVM (`https://github.com/creationix/nvm`).
+7. Install the latest stable version of Node.js with NVM.
+8. Install Ruby Version Manager - RVM (`https://rvm.io/`)
+9. Install the latest version of Ruby 1.9.3, This is what this library uses.
+10. Clone or Fork this repo to your machine.
+11. This project uses .ruby-version & .ruby-gemset to specify the ruby version and isolate your gemset related to this project.
+12. Navigate to your project directory and run `bundle install` to install all the gems for the project, then run `rake db:migrate` to update the local db or `rake db:reset`.
+13. To start your instance type `rails s`, this starts the rails server.
 
 Client Application Info
 ========================
@@ -145,9 +146,5 @@ Notes
    if [[ -f "$HOME/.amazon_keys" ]]; then
      source "$HOME/.amazon_keys";
    fi
-   ```
-* You need to install ImageMagic in order to do the image processing, if you are using OS X do the following:
-   ```
-   brew install imagemagick
    ```
 * If you want to get improved debugging in the chrome developer panel, install the Chrome RailsPanel Extension.
