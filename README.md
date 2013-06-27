@@ -22,6 +22,11 @@ It includes the following:
  * Paperclip https://github.com/thoughtbot/paperclip , which is configured to store files using Amazon S3
  * PaperTrail https://github.com/airblade/paper_trail , which allows for tracking model changes.
  * File Uploader http://github.com/Valums-File-Uploader/file-uploader, allows for progressbar and drag-and-drop support.
+ * Gritter for growl like client notifications https://github.com/jboesch/Gritter.
+ * wysihtml5 for formatted text input http://jhollingworth.github.io/bootstrap-wysihtml5/.
+ * Moment for date manipulation https://github.com/timrwood/moment.
+ * bootstrap-editable In-place editing with Bootstrap Form and Popover https://github.com/vitalets/bootstrap-editable.
+ * Sparklines Generates inline sparkline charts http://omnipotent.net/jquery.sparkline/.
  * Can imeadiatly be deployed to Heroku, without any modifications.
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
