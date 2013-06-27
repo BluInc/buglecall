@@ -19,9 +19,11 @@
 //= require select2
 //= require handlebars
 //= require bootstrap
+//= require bootstrap-editable
 //= require underscore
 //= require backbone
 //= require thorax
+//= require moment
 //= require greplytix-application
 //= require_tree ./lib
 //= require_tree ./templates
