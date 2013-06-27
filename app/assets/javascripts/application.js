@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require jquery.fineuploader
 //= require jquery-fileupload
+//= require jquery.sparkline
 //= require select2
 //= require handlebars
 //= require bootstrap
