@@ -27,6 +27,7 @@ It includes the following:
  * Moment for date manipulation https://github.com/timrwood/moment.
  * bootstrap-editable In-place editing with Bootstrap Form and Popover https://github.com/vitalets/bootstrap-editable.
  * Sparklines Generates inline sparkline charts http://omnipotent.net/jquery.sparkline/.
+ * HotKeys lets you watch for keyboard events anywhere in your code supporting almost any key combination https://github.com/jeresig/jquery.hotkeys
  * Can imeadiatly be deployed to Heroku, without any modifications.
  
 This allows me to have a common starting point for new Rails applications I develop, and to quickly spinup a known state to test something new out.
