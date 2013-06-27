@@ -19,6 +19,7 @@ gem 'tire',                       '~> 0.5.5'
 gem 'bootstrap-sass',             '~> 2.2'
 gem 'font-awesome-rails',         '~> 3.0'
 gem 'handlebars_assets',          '~> 0.13'
+gem 'bootstrap-wysihtml5-rails',  '~> 0.3'
 
 group :production do 
   gem 'pg'
