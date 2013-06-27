@@ -17,6 +17,7 @@
 //= require jquery-fileupload
 //= require jquery.sparkline
 //= require select2
+//= require jquery.hotkeys
 //= require handlebars
 //= require bootstrap
 //= require bootstrap-editable
