@@ -55,20 +55,20 @@ Client Application Info
      * Models are located in `assets/javascript/models`, they generally need to always include two configurations: `name` and `urlRoot`.
        * This was designed to work out-of-the-box with a Rails backend but will work with any server technology. Generally speaking the Model name should be the same name as the matching Model in Rails. The urlRoot is as defined in the Backbone documentation, but should always be included.
        * Model definitions are collected at App.Models automatically. So if you specified a name of 'Setting' in the Model then you could define a new model with `new App.Models.Setting()`.
-       * Model's have an added property called `useRailsUrl`, it is false by default. Setting this to true will overwrite the default `toJSON` to behave like Rails expects, placing the Model attributes within a properly named object.
+       * Model's have an added property called `useRailsParams`, it is false by default. Setting this to true will overwrite the default `toJSON` to behave like Rails expects, placing the Model attributes within a properly named object.
        * If you set the `parent` property of a model to another instanciated Model it will construct nested URL's when communicating to the server. For example I might have in a View initialize method the follwoing:
           
           ```
           @.model = new App.Models.Address()
           @.model.parent = App.get('CurrentUser')
-          @.model.useRailsUrl = true
+          @.model.useRailsParams = true
           ```
           * Now the URL that is generated would be something like this `/users/1/addresses/`, it will nest the relationships with the routes.
        * Model's have a new attribute setter and getter called nestedSet & nestedGet. This allows you to work with nested Models, for example:
        
           ```
           @.model = new App.Models.User({person: new App.Models.Person()})
-          @.model.useRailsUrl = true
+          @.model.useRailsParams = true
           @.model.nestedSet('person.first_name', 'Joe')
           @.model.nestedSet('person.last_name', 'Viscomi')
           ...

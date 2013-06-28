@@ -5,6 +5,13 @@
 #    For all details and documentation:
 #    https://github.com/jjviscomi/default-starter-rails-app
 
+#    greplytix-application.js 0.2.0
+
+#    (c) 2012-2013 Joseph Viscomi, Greplytix, Inc.
+#    greplytix-application may be freely distributed under the MIT license.
+#    For all details and documentation:
+#    https://github.com/jjviscomi/default-starter-rails-app
+
 @Application =  (options) ->
 
   _viewport = new Thorax.LayoutView 
@@ -115,7 +122,11 @@
   )
   @.Model = Thorax.Model.extend(
     '__application__': @
-    'useRailsUrl' : false
+    'useRailsParams' : false
+    'clone': () ->
+      modelClone = new @.constructor(@.attributes)
+      modelClone.useRailsParams = @.useRailsParams
+      modelClone
     'nestedGet' : (attr) ->
       nestedAttributes = []
       index = attr.indexOf('.')
@@ -126,7 +137,7 @@
         index = attr.substring(last).indexOf('.')
 
       if nestedAttributes.length is 0
-        m = @.attributes[attr]
+        m = @.get(attr)
       else
         # Need to grab the last one.
         nestedAttributes.push attr.substring(last)
@@ -182,7 +193,7 @@
       base + ((if base.charAt(base.length - 1) is "/" then "" else "/")) + encodeURIComponent(@id)
 
     'toJSON': () ->
-      if @.useRailsUrl
+      if @.useRailsParams
         name = @['name'].toUnderscore().toLowerCase()
         
         obj = {}

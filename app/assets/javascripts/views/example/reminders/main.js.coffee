@@ -9,5 +9,5 @@ App.View.extend (
       description:''
   
     @.model.parent = App.get('CurrentUser')
-    @.model.useRailsUrl = true
+    @.model.useRailsParams = true
 )

@@ -12,7 +12,7 @@ App.View.extend (
         name:''
         description:''
       @.model.parent = App.get('CurrentUser')
-      @.model.useRailsUrl = true
+      @.model.useRailsParams = true
 
   update: (e) ->
     # Get data
@@ -39,7 +39,7 @@ App.View.extend (
     # collection and we don't want to get things mixed up once we add it.
     localModel = @.model.clone()
     localModel.parent = App.get('CurrentUser')
-    localModel.useRailsUrl = true
+    localModel.useRailsParams = true
 
     # Only add it to the local collection view if if was saved to the server
     localModel.save({},{
