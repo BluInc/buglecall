@@ -40,10 +40,10 @@
       
       child
   @.isModel = (obj) ->
-    _.has(obj,'__class__') and _.isEqual(obj['__class__'], "Backbone.Model")
+    !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Model")
 
   @.isCollection = (obj) ->
-    _.has(obj,'__class__') and _.isEqual(obj['__class__'], "Backbone.Collection")
+    !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Collection")
 
   @.log = () ->
     if _debug
@@ -186,6 +186,7 @@
             m = m.get(nestedAttributes[index])
           index++
       
+        #console.log m, setProperty, value, options
         return m.set(setProperty, value, options)
 
 
