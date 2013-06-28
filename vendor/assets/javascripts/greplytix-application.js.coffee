@@ -5,13 +5,6 @@
 #    For all details and documentation:
 #    https://github.com/jjviscomi/default-starter-rails-app
 
-#    greplytix-application.js 0.2.0
-
-#    (c) 2012-2013 Joseph Viscomi, Greplytix, Inc.
-#    greplytix-application may be freely distributed under the MIT license.
-#    For all details and documentation:
-#    https://github.com/jjviscomi/default-starter-rails-app
-
 @Application =  (options) ->
 
   _viewport = new Thorax.LayoutView 
@@ -46,6 +39,11 @@
         hash[child.prototype.name] = child
       
       child
+  @.isModel = (obj) ->
+    _.has(obj,'__class__') and _.isEqual(obj['__class__'], "Backbone.Model")
+
+  @.isCollection = (obj) ->
+    _.has(obj,'__class__') and _.isEqual(obj['__class__'], "Backbone.Collection")
 
   @.log = () ->
     if _debug
@@ -112,6 +110,7 @@
 
   # Define default data object classes.
   @.Collection = Thorax.Collection.extend(
+    '__class__': 'Backbone.Collection'
     '__application__': @
     # This defines a generic relationship between RESTful mapps and model and collections
     'url': () ->
@@ -121,11 +120,23 @@
         _.result(@.parent, 'url') + "/#{@.name.toUnderscore().toLowerCase()}"
   )
   @.Model = Thorax.Model.extend(
+    '__class__': 'Backbone.Model'
     '__application__': @
     'useRailsParams' : false
     'clone': () ->
-      modelClone = new @.constructor(@.attributes)
+      modelClone = new @.constructor()
+
       modelClone.useRailsParams = @.useRailsParams
+      modelClone['__class__'] = @['__class__']
+      modelClone['__application__'] = @['__application__']
+
+      _.each(@.attributes, (value, key, list) ->
+        if App.isModel(value)
+          @.set key, value.clone()
+        else
+          @.set key, value
+      , modelClone)
+
       modelClone
     'nestedGet' : (attr) ->
       nestedAttributes = []
@@ -162,7 +173,7 @@
         index = attr.substring(last).indexOf('.')
 
       if nestedAttributes.length is 0
-        return @.set(attr, value, _.extend({silent:true}, options))
+        return @.set(attr, value, _.extend({}, options))
       else
         # Need to grab the last one, that is the property we are setting.
         setProperty = attr.substring(last)
