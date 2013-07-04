@@ -40,10 +40,10 @@
       
       child
   @.isModel = (obj) ->
-    !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Model")
+    !_.isUndefined(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Model")
 
   @.isCollection = (obj) ->
-    !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Collection")
+    !_.isUndefined(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Collection")
 
   @.log = () ->
     if _debug
@@ -114,10 +114,16 @@
     '__application__': @
     # This defines a generic relationship between RESTful mapps and model and collections
     'url': () ->
-      if !_.has(@,'parent')
-        "/#{@.name.toUnderscore().toLowerCase()}"
-      else
+      if _.has(@,'parent')
         _.result(@.parent, 'url') + "/#{@.name.toUnderscore().toLowerCase()}"
+      else
+        "/#{@.name.toUnderscore().toLowerCase()}"
+    'toJSON': (options) ->
+      obj = {}
+      obj["#{@.name.toUnderscore().toLowerCase()}"] = @.map((model)->
+        model.toJSON(options)
+      )
+      obj
   )
   @.Model = Thorax.Model.extend(
     '__class__': 'Backbone.Model'
@@ -129,7 +135,6 @@
       modelClone.useRailsParams = @.useRailsParams
       modelClone['__class__'] = @['__class__']
       modelClone['__application__'] = @['__application__']
-
       _.each(@.attributes, (value, key, list) ->
         if App.isModel(value)
           @.set key, value.clone()
