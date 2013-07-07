@@ -40,10 +40,10 @@
       
       child
   @.isModel = (obj) ->
-    !_.isUndefined(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Model")
+    !_.isUndefined(obj) and !_.isNull(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Model")
 
   @.isCollection = (obj) ->
-    !_.isUndefined(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Collection")
+    !_.isUndefined(obj) and !_.isNull(obj) and !_.isUndefined(obj['__class__']) and (obj['__class__'] is "Backbone.Collection")
 
   @.log = () ->
     if _debug
@@ -112,6 +112,7 @@
   @.Collection = Thorax.Collection.extend(
     '__class__': 'Backbone.Collection'
     '__application__': @
+    'nested' : false
     # This defines a generic relationship between RESTful mapps and model and collections
     'url': () ->
       if _.has(@,'parent')
@@ -120,9 +121,23 @@
         "/#{@.name.toUnderscore().toLowerCase()}"
     'toJSON': (options) ->
       obj = {}
-      obj["#{@.name.toUnderscore().toLowerCase()}"] = @.map((model)->
-        model.toJSON(options)
-      )
+      if @.nested is true 
+        name = null
+      else
+        name = "#{@.name.toUnderscore().toLowerCase()}"
+
+      if _.isEmpty(@.models)
+        if !_.isNull(name)
+          obj["#{@.name.toUnderscore().toLowerCase()}"] = {}
+      else
+        if _.isNull(name)
+          obj = @.map((model)->
+            model.toJSON(options)
+          )
+        else
+          obj["#{@.name.toUnderscore().toLowerCase()}"] = @.map((model)->
+            model.toJSON(options)
+          )
       obj
   )
   @.Model = Thorax.Model.extend(
