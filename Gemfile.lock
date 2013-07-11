@@ -276,7 +276,7 @@ DEPENDENCIES
   better_errors (~> 0.7)
   binding_of_caller (~> 0.7)
   bootstrap-sass (~> 2.2)
-  bootstrap-wysihtml5-rails
+  bootstrap-wysihtml5-rails (~> 0.3)
   cancan (~> 1.6.9)
   coffee-rails (~> 3.2)
   d3_rails (~> 3.0)
