@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   # This is for the example
   has_many :reminders
+  has_many :microposts, dependent: :destroy
 
   has_attached_file :avatar, styles: {
     small:  '25x25>',

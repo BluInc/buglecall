@@ -36,6 +36,7 @@ group :assets do
 end
 
 group :test, :development do 
+  gem 'faker',                    '1.2.0'
   gem 'sqlite3',                  '~> 1.3'
   gem 'rspec-rails',              '~> 2.10' 
   gem 'guard-rspec',              '~> 0.5' 
