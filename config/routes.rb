@@ -11,6 +11,10 @@ Basic::Application.routes.draw do
   # START EXAMPLE ROUTES
   resources :users do
     resources :reminders
+    resources :microposts
+    member do
+      get :following, :followers
+    end
   end
 
   resources :reminders
