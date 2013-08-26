@@ -36,6 +36,8 @@ group :assets do
 end
 
 group :test, :development do 
+  gem 'will_paginate', '3.0.4'
+  gem 'bootstrap-will_paginate', '0.0.9'
   gem 'faker',                    '1.2.0'
   gem 'sqlite3',                  '~> 1.3'
   gem 'rspec-rails',              '~> 2.10' 

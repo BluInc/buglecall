@@ -1,10 +1,10 @@
 %h3
 	= image_tag current_user.avatar.url(:medium), class: "img-rounded"
-	= current_user.email
+	= link_to current_user.email, current_user
 
-.span8
-	- if @current_user.microposts?
-		%h3 Microposts (#{@current_user.microposts.count})
-		%ol.microposts
-			= render @microposts
-		= will_paginate @microposts
+/ .span8
+/ 	- if current_user.microposts.any?
+/ 		%h3 Microposts (#{@current_user.microposts.count})
+/ 		%ol.microposts
+/ 			= render @microposts
+/ 		= will_paginate @microposts
