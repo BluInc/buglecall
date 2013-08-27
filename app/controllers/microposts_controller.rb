@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
   # before_action :signed_in_user
+  #include ActiveModel::ForbiddenAttributesProtection
 
   def create
     @micropost = current_user.microposts.build(micropost_params)

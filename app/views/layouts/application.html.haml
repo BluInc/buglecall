@@ -22,5 +22,10 @@
               = yield
           - if signed_in?
             .main.client.application.row-fluid
-            = render 'static_pages/home'
+            %section
+              = render 'shared/user_info'
+            %section
+              = render 'shared/stats'
+            %section
+              = render 'shared/micropost_form'
           %footer

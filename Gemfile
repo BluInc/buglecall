@@ -28,7 +28,7 @@ end
 
 group :assets do
 
-  
+
   gem 'sass-rails',               '~> 3.2'
   gem 'coffee-rails',             '~> 3.2'
   gem 'uglifier',                 '~> 1.3'
@@ -36,6 +36,7 @@ group :assets do
 end
 
 group :test, :development do 
+  gem 'strong_parameters'
   gem 'will_paginate', '3.0.4'
   gem 'bootstrap-will_paginate', '0.0.9'
   gem 'faker',                    '1.2.0'
