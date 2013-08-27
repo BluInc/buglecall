@@ -33,6 +33,12 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy!
   end
 
+  # Micropost status feed
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Micropost.where("user_id = ?", id)
+  end
+
   has_attached_file :avatar, styles: {
     small:  '25x25>',
     thumb:  '100x100>',

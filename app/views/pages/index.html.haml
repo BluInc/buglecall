@@ -1,6 +1,12 @@
-%h3
-	= image_tag current_user.avatar.url(:medium), class: "img-rounded"
-	= link_to current_user.email, current_user
+%section
+  = render 'shared/user_info'
+%section
+  = render 'shared/stats'
+%section
+  = render 'shared/micropost_form'
+/ %h3
+/ 	= image_tag current_user.avatar.url(:medium), class: "img-rounded"
+/ 	= link_to current_user.email, current_user
 
 / .span8
 / 	- if current_user.microposts.any?
