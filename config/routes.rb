@@ -17,6 +17,8 @@ Basic::Application.routes.draw do
     end
   end
 
+  resources :microposts, only: [:create, :destroy]
+  
   resources :reminders
   # END EXAMPLE ROUTES
 

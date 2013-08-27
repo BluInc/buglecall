@@ -1,10 +1,14 @@
-<% provide(:title, @user.email) %>
-
-
+<% provide(:title, @user.name) %>
+<div class="row">
+<aside class="span4">
+	<section>
 <%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
 <br/>
-<h3><%= @user.email.split("@")[0].html_safe %></h3>
+<h1><%= @user.email.split("@")[0].html_safe %></h1>
 <%= render 'shared/stats' %>
+<%= render 'shared/micropost_form' %>
+</section>
+</aside>
 <div class="span8">
 	<% if @user.microposts.any? %>
 	  <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -13,4 +17,6 @@
 	  </ol>
 	  <%= will_paginate @microposts %>
 	<% end %>
+</div>
+
 </div>
