@@ -1,5 +1,6 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, 'home') %>
 <div class="row">
+<% if signed_in? %>
 <aside class="span4">
 	<section>
 		<h1>
@@ -25,3 +26,4 @@
 </div>
 
 </div>
+<% end %>
