@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :name, :admin
 
+  validates :name,  presence: true, length: { maximum: 50 }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+
+  before_save { self.email = email.downcase }
+
   # This is for the example
   has_many :reminders
   has_many :microposts, dependent: :destroy
