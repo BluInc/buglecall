@@ -1,9 +1,10 @@
 <% provide(:title, @user.email) %>
 
-<h3>
-	<%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
-	<%= @user.email %>
-</h3>
+
+<%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
+<br/>
+<h3><%= @user.email.split("@")[0].html_safe %></h3>
+<%= render 'shared/stats' %>
 <div class="span8">
 	<% if @user.microposts.any? %>
 	  <h3>Microposts (<%= @user.microposts.count %>)</h3>

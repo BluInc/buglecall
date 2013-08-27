@@ -5,8 +5,11 @@
   .row-fluid 
     %h2.form-signin-heading Please sign up
   .row-fluid
+    = f.text_field :name, class: "input-block-level", placeholder: "Name"
+  .row-fluid
     = f.email_field :email, class: "input-block-level", placeholder: "Email address"
   .row-fluid.field
+    Select Profile Picture
     = f.file_field :avatar, placeholder: "User avatar"
   .row-fluid
     = f.password_field :password, class: "input-block-level", placeholder: "Password"
