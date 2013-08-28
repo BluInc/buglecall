@@ -35,13 +35,14 @@ class User < ActiveRecord::Base
   end
 
   def unfollow!(other_user)
-    relationships.find_by_followed_id(other_user.id).destroy!
+    relationships.find_by_followed_id(other_user.id).destroy
   end
 
   # Micropost status feed
   def feed
     # This is preliminary. See "Following users" for the full implementation.
-    Micropost.where("user_id = ?", id)
+    #Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)
   end
 
   has_attached_file :avatar, styles: {
