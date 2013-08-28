@@ -45,11 +45,11 @@ class User < ActiveRecord::Base
   end
 
   has_attached_file :avatar, styles: {
-    small:  '25x25>',
-    thumb:  '100x100>',
-    medium: '200x200>',
-    large:  '300x300>'
-  }, :default_url => "/default.jpg"
+    small:  '25x25',
+    thumb:  '100x100',
+    medium: '200x200',
+    large:  '300x300'
+  }#, :default_url => "/default.jpg"
   
   # Enable papertrail on this model
   # Ignore fields that are not critical, and do not store s3 information
