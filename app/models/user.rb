@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
 
   def following?(other_user)
-    relationships.find_by(followed_id: other_user.id)
+    relationships.where(followed_id: other_user.id).exists?
   end
 
   def follow!(other_user)
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def unfollow!(other_user)
-    relationships.find_by(followed_id: other_user.id).destroy!
+    relationships.find_by_followed_id(other_user.id).destroy!
   end
 
   # Micropost status feed
