@@ -4,13 +4,13 @@
 	<section>
 <%= image_tag @user.avatar.url(:medium), class: "img-rounded" %>
 <br/>
-<h1><%= @user.email.split("@")[0].html_safe %></h1>
+<h1><%= @user.name %></h1>
 <%= render 'shared/stats' %>
 <%= render 'shared/micropost_form' %>
 </section>
 </aside>
 <div class="span8">
-	<%= render 'follow_form' %>
+	<%= render 'follow_form' if signed_in? %>
 	<% if @user.microposts.any? %>
 	  <h3>Microposts (<%= @user.microposts.count %>)</h3>
 	  <ol class="microposts">
