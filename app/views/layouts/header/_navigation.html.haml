@@ -2,11 +2,14 @@
   %nav.navbar-inner
     .container-fluid
       = link_to "Home", root_path, :class => 'brand'
+      = link_to "Users", '/users', :class => 'brand'
       %ul.nav.pull-right
         - if user_signed_in?
           %li
             %a{href: edit_user_registration_path}
               = image_tag current_user.avatar.url(:small), class: "img-rounded"
+              %span
+                &nbsp;
               %strong
                 = current_user.name
                 /= current_user.email.split("@")[0].html_safe
